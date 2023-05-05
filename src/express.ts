@@ -8,7 +8,7 @@ import { HttpLogger, pinoHttp, Options as pinoOptions } from 'pino-http';
 import { middleware as openApiMiddleware } from 'express-openapi-validator';
 import { realpathSync } from 'fs';
 import listEndpoints from 'express-list-endpoints';
-import type { pino } from 'pino';
+import { pino } from 'pino';
 
 
 const buildIgnorePaths = (paths: string[], version: number): string[] => {
@@ -18,17 +18,22 @@ const buildIgnorePaths = (paths: string[], version: number): string[] => {
   return ignorePaths;
 }
 
-const getPinoHttp = (ignorePaths: string[], logger: pino.Logger): HttpLogger => {
+const getPinoHttp = (enabled: boolean, ignorePaths: string[], logger: pino.Logger): HttpLogger => {
   const options: pinoOptions = {
     logger: logger,
     autoLogging: { ignore: (req: IncomingMessage) => {
-      if (req.url) {
-        if (ignorePaths.includes(req.url)) {
-          return true
+      if (!enabled) {
+        // ? true to ignore, hence false to autologging.
+        return true;
+      } else {
+        if (req.url) {
+          if (ignorePaths.includes(req.url)) {
+            return true;
+          }
         }
+        return false;
       }
-      return false
-    }, }
+    }}
   }
   return pinoHttp(options)
 }
@@ -91,7 +96,7 @@ export const createExpressApp = (options: ServiceOptions, router?: Router, healt
   // Set up and configure the logger
   const ignoreLogPaths = buildIgnorePaths(config.server.ignoreLogPaths ? config.server.ignoreLogPaths : [], config.apiVersion);
   logger.debug({ paths: ignoreLogPaths }, 'Paths to not log requests from');
-  app.use(getPinoHttp(ignoreLogPaths, logger));
+  app.use(getPinoHttp(config.log.autoLogging, ignoreLogPaths, logger));
 
   // Configure authentication
   const ignoreAuthPaths = buildIgnorePaths(config.server.ignoreAuthPaths ? config.server.ignoreAuthPaths : [], config.apiVersion);
