@@ -1,0 +1,47 @@
+{
+  "name": "cor-base-service",
+  "version": "1.0.0",
+  "description": "Library to work as base for web service. Handles authN/authZ, standarizes logging and error messages",
+  "main": "lib/index",
+  "types": "lib/index",
+  "scripts": {
+    "build": "./node_modules/.bin/tsc -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimitris-zervas/cor-base-service-js.git"
+  },
+  "keywords": [
+    "cor",
+    "web-services",
+    "backend",
+    "express"
+  ],
+  "author": "Dimitris Zervas",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/dimitris-zervas/cor-base-service-js/issues"
+  },
+  "homepage": "https://github.com/dimitris-zervas/cor-base-service-js#readme",
+  "devDependencies": {
+    "@tsconfig/node18": "^2.0.0",
+    "@types/express": "^4.17.17",
+    "@types/express-list-endpoints": "^6.0.0",
+    "@types/pino": "^7.0.5",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "express-list-endpoints": "^6.0.0",
+    "express-openapi-validator": "^5.0.4",
+    "http-status-codes": "^2.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "jwks-rsa": "^3.0.1",
+    "jwt-decode": "^3.1.2",
+    "pino-http": "^8.3.3"
+  },
+  "peerDependencies": {
+    "pino": "^8.12.1"
+  }
+}
