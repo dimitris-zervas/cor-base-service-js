@@ -1,5 +1,5 @@
-import { StatusCodes, ReasonPhrases } from 'http-status-codes';
-import { ResponseError } from './types/errors';
+import { StatusCodes, ReasonPhrases } from "http-status-codes";
+import { ResponseError } from "./types/errors";
 
 
 /** 400 Bad Request */

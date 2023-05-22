@@ -1,5 +1,5 @@
-import { ServiceConfiguration } from './types/config';
-import { LogLevel } from './types/logger';
+import { ServiceConfiguration } from "./types/config";
+import { LogLevel } from "./types/logger";
 
 export const baseConfiguration: ServiceConfiguration = {
   apiVersion: 1,

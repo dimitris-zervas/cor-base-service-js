@@ -1,6 +1,6 @@
-import http from 'http';
-import type { Application } from 'express';
-import type { Logger } from 'pino';
+import http from "http";
+import type { Application } from "express";
+import type { Logger } from "pino";
 
 export const getHTTPServer = (app: Application, name: string, logger: Logger): http.Server => {
   logger.info(`Starting ${name} service`);
@@ -16,6 +16,6 @@ export const startServer = (server: http.Server, port: number, logger: Logger) =
 }
 
 export const stopServer = (server: http.Server, logger: Logger) => {
-  logger.warn('HTTP server is shutting down');
+  logger.warn("HTTP server is shutting down");
   server.close();
 }

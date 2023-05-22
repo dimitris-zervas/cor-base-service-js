@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="28" failures="0" errors="0" time="22.057">
+  <testsuite name="Unit Testing &gt; Errors" errors="0" failures="0" skipped="0" timestamp="2023-05-22T20:36:44" time="17.704" tests="9">
+    <testcase classname="Unit Testing &gt; Errors should return a BadRequestError when a valid string is passed" name="Unit Testing &gt; Errors should return a BadRequestError when a valid string is passed" time="0.02">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Errors should return the default message of BadRequest error, when no string is given as parameter" name="Unit Testing &gt; Errors should return the default message of BadRequest error, when no string is given as parameter" time="0.001">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Errors should return the default message of NOT_FOUND error, when no string is given as parameter" name="Unit Testing &gt; Errors should return the default message of NOT_FOUND error, when no string is given as parameter" time="0.001">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Errors should return an InternalServer error when a valid string is passed" name="Unit Testing &gt; Errors should return an InternalServer error when a valid string is passed" time="0">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Errors should return the default message of InternalServer error, when no string is given as parameter" name="Unit Testing &gt; Errors should return the default message of InternalServer error, when no string is given as parameter" time="0.001">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Errors should return the default message of Unauthorized error, when no string is given as parameter" name="Unit Testing &gt; Errors should return the default message of Unauthorized error, when no string is given as parameter" time="0.001">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Errors should return the default message of GateWayTimeout error, when no string is given as parameter" name="Unit Testing &gt; Errors should return the default message of GateWayTimeout error, when no string is given as parameter" time="0">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Errors should return the default message of ForbiddenError error, when no string is given as parameter" name="Unit Testing &gt; Errors should return the default message of ForbiddenError error, when no string is given as parameter" time="0.001">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Errors should return the default message of BadGateWayError error, when no string is given as parameter" name="Unit Testing &gt; Errors should return the default message of BadGateWayError error, when no string is given as parameter" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="Unit Testing &gt; Auth &gt; getTokenFromHeader" errors="0" failures="0" skipped="0" timestamp="2023-05-22T20:36:44" time="19.248" tests="4">
+    <testcase classname="Unit Testing &gt; Auth &gt; getTokenFromHeader Token retrieved successfully when Authorization header is a single string" name="Unit Testing &gt; Auth &gt; getTokenFromHeader Token retrieved successfully when Authorization header is a single string" time="0.005">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Auth &gt; getTokenFromHeader Token retrieved successfully when Authorization header is an arrya of strings" name="Unit Testing &gt; Auth &gt; getTokenFromHeader Token retrieved successfully when Authorization header is an arrya of strings" time="0.002">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Auth &gt; getTokenFromHeader Token retrieved successfully when Authorization header is a string without a Bearer prefix" name="Unit Testing &gt; Auth &gt; getTokenFromHeader Token retrieved successfully when Authorization header is a string without a Bearer prefix" time="0">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Auth &gt; getTokenFromHeader Retrieves undefined when Authorization header is not provided" name="Unit Testing &gt; Auth &gt; getTokenFromHeader Retrieves undefined when Authorization header is not provided" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="Unit Testing &gt; Auth &gt; getSigningKey" errors="0" failures="0" skipped="0" timestamp="2023-05-22T20:36:44" time="19.747" tests="2">
+    <testcase classname="Unit Testing &gt; Auth &gt; getSigningKey It throws an error when the decoded token is malformed" name="Unit Testing &gt; Auth &gt; getSigningKey It throws an error when the decoded token is malformed" time="0.008">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Auth &gt; getSigningKey It throws an error when the call to the IDP client throws an error" name="Unit Testing &gt; Auth &gt; getSigningKey It throws an error when the call to the IDP client throws an error" time="0.085">
+    </testcase>
+  </testsuite>
+  <testsuite name="Unit Testing &gt; Auth &gt; verifyJWT" errors="0" failures="0" skipped="0" timestamp="2023-05-22T20:36:44" time="19.694" tests="2">
+    <testcase classname="Unit Testing &gt; Auth &gt; verifyJWT It throws an error when the getSigningKey call throws an error" name="Unit Testing &gt; Auth &gt; verifyJWT It throws an error when the getSigningKey call throws an error" time="0.012">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Auth &gt; verifyJWT It returns the decoded payload" name="Unit Testing &gt; Auth &gt; verifyJWT It returns the decoded payload" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="getHTTPServer" errors="0" failures="0" skipped="0" timestamp="2023-05-22T20:36:44" time="20.439" tests="3">
+    <testcase classname="getHTTPServer should create an HTTP server with the provided app" name="getHTTPServer should create an HTTP server with the provided app" time="0.016">
+    </testcase>
+    <testcase classname="startServer should start the server and log the appropriate message" name="startServer should start the server and log the appropriate message" time="0.003">
+    </testcase>
+    <testcase classname="stopServer should stop the server and log the appropriate message" name="stopServer should stop the server and log the appropriate message" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="createExpressApp" errors="0" failures="0" skipped="0" timestamp="2023-05-22T20:36:44" time="20.587" tests="1">
+    <testcase classname="createExpressApp should create an Express app with the provided options" name="createExpressApp should create an Express app with the provided options" time="0.023">
+    </testcase>
+  </testsuite>
+  <testsuite name="Unit Testing &gt; Auth &gt; authentication middleware" errors="0" failures="0" skipped="0" timestamp="2023-05-22T20:36:44" time="20.925" tests="7">
+    <testcase classname="Unit Testing &gt; Auth &gt; authentication middleware should throw a 401 error when the jwt is expired" name="Unit Testing &gt; Auth &gt; authentication middleware should throw a 401 error when the jwt is expired" time="0.037">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Auth &gt; authentication middleware should throw a 401 error when the jwt is not valid" name="Unit Testing &gt; Auth &gt; authentication middleware should throw a 401 error when the jwt is not valid" time="0.002">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Auth &gt; authentication middleware successfully calls the next function when the token is verified" name="Unit Testing &gt; Auth &gt; authentication middleware successfully calls the next function when the token is verified" time="0.002">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Auth &gt; authentication middleware successfully calls the next function for the excluded method OPTIONS" name="Unit Testing &gt; Auth &gt; authentication middleware successfully calls the next function for the excluded method OPTIONS" time="0.005">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Auth &gt; authentication middleware successfully calls the next function for the excluded path" name="Unit Testing &gt; Auth &gt; authentication middleware successfully calls the next function for the excluded path" time="0.001">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Auth &gt; Throws Unauthorized as it misses the Authorization header" name="Unit Testing &gt; Auth &gt; Throws Unauthorized as it misses the Authorization header" time="0.003">
+    </testcase>
+    <testcase classname="Unit Testing &gt; Auth &gt; Throws InternalServerError when the config doesn&apos;t have jwks_uri " name="Unit Testing &gt; Auth &gt; Throws InternalServerError when the config doesn&apos;t have jwks_uri " time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>

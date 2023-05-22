@@ -5,7 +5,11 @@
   "main": "lib/index",
   "types": "lib/index",
   "scripts": {
-    "build": "./node_modules/.bin/tsc -d"
+    "build": "./node_modules/.bin/tsc -d",
+    "lint": "eslint --ext js,ts src test",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "jest --no-cache --runInBand --verbose=true",
+    "test:ci": "jest --ci --reporters=default --reporters=jest-junit --coverage"
   },
   "repository": {
     "type": "git",
@@ -24,11 +28,26 @@
   },
   "homepage": "https://github.com/dimitris-zervas/cor-base-service-js#readme",
   "devDependencies": {
+    "@jest-mock/express": "^2.0.1",
     "@tsconfig/node18": "^2.0.0",
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.17",
     "@types/express-list-endpoints": "^6.0.0",
+    "@types/jest": "^29.5.1",
     "@types/pino": "^7.0.5",
-    "typescript": "^5.0.4"
+    "@types/supertest": "^2.0.12",
+    "@types/uuid": "^9.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "@typescript-eslint/parser": "^5.59.6",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.41.0",
+    "jest": "^29.5.0",
+    "jest-junit": "^16.0.0",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4",
+    "uuid": "^9.0.0"
   },
   "dependencies": {
     "express": "^4.18.2",

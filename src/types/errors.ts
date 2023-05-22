@@ -4,4 +4,4 @@ export interface ResponseError {
   type?: string,
   name?: string,
   path?: string,
-};
+}
