@@ -5,6 +5,7 @@ import type { TokenHeader, TokenPayload} from "../types/token";
 import jwksClient from "jwks-rsa";
 import jwt from "jsonwebtoken";
 import { InternalServerError } from "../errors";
+import { IncomingMessage } from "http";
 
 export function getTokenFromHeader(req: Request): string | undefined {
   let authHeader = req.get("Authorization");
@@ -39,4 +40,27 @@ export const verifyJWT = async (jwksUri: string, token: string, logger: pino.Log
   const payload = <TokenPayload>jwt.verify(token, signingKey);
   // TODO: Check the iss and other claims here!!!
   return payload;
+}
+
+
+/**
+ * 
+ * @param req The HTTP IncomingMessage object
+ * @param logger 
+ * @returns 
+ * @description Will look for a token in the Authorization header, and if not found, will look for a query parameter named accessToken
+ */
+export const getTokenFromWebSocket = (req: IncomingMessage, logger: pino.Logger): string | undefined => {
+  let token = req.headers.authorization?.split('Bearer ').pop();
+  if (!token || token === '') {
+    logger.debug({ token }, 'Token not found in header, looking for query parameters');
+    const location = new URL(req.url as string, `http://${req.headers.host}`);
+    const headerToken = location.searchParams.get('accessToken');
+    if (headerToken !== null) {
+      logger.debug('Token found in query parameter');
+      token = headerToken;
+    }
+  }
+
+  return token;
 }
