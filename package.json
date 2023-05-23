@@ -1,7 +1,8 @@
 {
-  "name": "cor-base-service",
+  "name": "@cor/base-service",
   "version": "1.0.0",
-  "description": "Library to work as base for web service. Handles authN/authZ, standarizes logging and error messages",
+  "description": "Library build upon COR web services. Handles authN/authZ, standarizes logging and error messages",
+  "author": "Dimitris Zervas <d.a.zervas@gmail.com>",
   "main": "lib/src/index",
   "types": "lib/src/index",
   "scripts": {
@@ -21,7 +22,6 @@
     "backend",
     "express"
   ],
-  "author": "Dimitris Zervas",
   "license": "MIT License",
   "bugs": {
     "url": "https://github.com/dimitris-zervas/cor-base-service-js/issues"
