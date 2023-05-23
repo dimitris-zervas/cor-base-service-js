@@ -51,13 +51,13 @@ export const verifyJWT = async (jwksUri: string, token: string, logger: pino.Log
  * @description Will look for a token in the Authorization header, and if not found, will look for a query parameter named accessToken
  */
 export const getTokenFromWebSocket = (req: IncomingMessage, logger: pino.Logger): string | undefined => {
-  let token = req.headers.authorization?.split('Bearer ').pop();
-  if (!token || token === '') {
-    logger.debug({ token }, 'Token not found in header, looking for query parameters');
+  let token = req.headers.authorization?.split("Bearer ").pop();
+  if (!token || token === "") {
+    logger.debug({ token }, "Token not found in header, looking for query parameters");
     const location = new URL(req.url as string, `http://${req.headers.host}`);
-    const headerToken = location.searchParams.get('accessToken');
+    const headerToken = location.searchParams.get("accessToken");
     if (headerToken !== null) {
-      logger.debug('Token found in query parameter');
+      logger.debug("Token found in query parameter");
       token = headerToken;
     }
   }
