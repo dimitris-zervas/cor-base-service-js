@@ -1,6 +1,8 @@
-import { JwtHeader } from "jwt-decode";
+import { JwtHeader, JwtPayload } from "jwt-decode";
 
-export { JwtPayload as TokenPayload } from "jwt-decode";
+export type TokenPayload = JwtPayload & {
+  oid: string;
+}
 
 export interface TokenHeader extends JwtHeader {
   kid?: string;

@@ -2,8 +2,8 @@
   "name": "cor-base-service",
   "version": "1.0.0",
   "description": "Library to work as base for web service. Handles authN/authZ, standarizes logging and error messages",
-  "main": "lib/index",
-  "types": "lib/index",
+  "main": "lib/src/index",
+  "types": "lib/src/index",
   "scripts": {
     "build": "./node_modules/.bin/tsc -d",
     "lint": "eslint --ext js,ts src test",
