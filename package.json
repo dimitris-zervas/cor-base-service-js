@@ -1,5 +1,5 @@
 {
-  "name": "@cor/base-service",
+  "name": "cor-base-service",
   "version": "1.0.0",
   "description": "Library build upon COR web services. Handles authN/authZ, standarizes logging and error messages",
   "author": "Dimitris Zervas <d.a.zervas@gmail.com>",
