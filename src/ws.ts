@@ -24,8 +24,6 @@ export const attachWebSocketServer = (server: Server, options: ServiceOptions, r
     const location = new URL(req.url as string, `http://${req.headers.host}`);
     const path = location.pathname;
     const matchRoute = router.find(route => route.path === path);
-    // console.log(matchRoute);
-    // console.log(location);
     if (matchRoute) {
       /* If authenticated */
       let token: TokenPayload | UserIdPayload | undefined;
@@ -64,12 +62,10 @@ export const attachTestWebSocketServer = (server: Server, options: ServiceOption
     const path = location.pathname;
     const matchRoute = router.find(route => route.path === path);
     if (matchRoute) {
-      /* If authenticated */
+      /* This is for testing so auth or no auth we upgrade with the decoded token */
       let token: TokenPayload | undefined;
-      if (options.config.server.auth.enabled) {
-        const encoded = getTokenFromWebSocket(req, options.logger);
-        token = jwt.decode(encoded as string) as TokenPayload;
-      }
+      const encoded = getTokenFromWebSocket(req, options.logger);
+      token = jwt.decode(encoded as string) as TokenPayload;
       /* Upgrade the conncetion */
       wss.handleUpgrade(req, socket, head, (ws, req) => {
         matchRoute.handler(wss, req, ws, token as TokenPayload);
