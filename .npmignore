@@ -1,2 +1,6 @@
 src/
 test/
+coverage/
+.eslintrc.cjs
+junit.xml
+jest.config.ts
