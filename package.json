@@ -1,6 +1,6 @@
 {
   "name": "cor-base-service",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Library build upon COR web services. Handles authN/authZ, standarizes logging and error messages",
   "author": "Dimitris Zervas <d.a.zervas@gmail.com>",
   "main": "lib/src/index",
