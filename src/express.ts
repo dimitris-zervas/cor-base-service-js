@@ -118,7 +118,7 @@ export const createExpressApp = (options: ServiceOptions, router?: Router, healt
   // Routes
   if (router) {
     const routerPath = router.path !== "" ? `/${router.path}` : "";
-    app.use(`/v${config.apiVersion}${routerPath}`, router.getRouter());
+    app.use(`${routerPath}`, router.getRouter());
   }
 
   // Error handlers
